@@ -7,19 +7,21 @@ export default function navLinksHadler() {
   //const navMenus = document.querySelectorAll(".nav-list_wrapper");
 
   function scrambleIn(link) {
+    const linkTextEl = link.querySelector(".navbar_link-text");
     if (link.getAttribute("data-nav-link") === "categories")
-      scramble(link, "Explore");
+      scramble(linkTextEl, "Explore");
     if (link.getAttribute("data-nav-link") === "newsletter")
-      scramble(link, "Subscribe");
+      scramble(linkTextEl, "Subscribe");
   }
 
   function scrambleOut(link) {
+    const linkTextEl = link.querySelector(".navbar_link-text");
     if (!link.classList.contains("is-opened")) {
       if (link.getAttribute("data-nav-link") === "categories")
-        scramble(link, "Categories");
+        scramble(linkTextEl, "Categories");
       if (link.getAttribute("data-nav-link") === "newsletter")
-        scramble(link, "Newsletter");
-    } else scramble(link, "Close");
+        scramble(linkTextEl, "Newsletter");
+    } else scramble(linkTextEl, "Close");
   }
 
   function removeOpenedClas() {
@@ -94,12 +96,12 @@ export default function navLinksHadler() {
     //Hover in
     link.addEventListener("mouseover", () => {
       if (link.classList.contains("is-opened")) {
-        scramble(link.querySelector(".navbar_link-text"), "Close");
-      } else scrambleIn(link.querySelector(".navbar_link-text"));
+        scramble(link, "Close");
+      } else scrambleIn(link);
     });
     //Hover out
     link.addEventListener("mouseleave", () => {
-      scrambleOut(link.querySelector(".navbar_link-text"));
+      scrambleOut(link);
     });
 
     //Click in
