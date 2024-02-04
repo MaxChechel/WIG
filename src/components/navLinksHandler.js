@@ -94,12 +94,12 @@ export default function navLinksHadler() {
     //Hover in
     link.addEventListener("mouseover", () => {
       if (link.classList.contains("is-opened")) {
-        scramble(link, "Close");
-      } else scrambleIn(link);
+        scramble(link.querySelector(".navbar_link-text"), "Close");
+      } else scrambleIn(link.querySelector(".navbar_link-text"));
     });
     //Hover out
     link.addEventListener("mouseleave", () => {
-      scrambleOut(link);
+      scrambleOut(link.querySelector(".navbar_link-text"));
     });
 
     //Click in
