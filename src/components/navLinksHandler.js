@@ -94,7 +94,7 @@ export default function navLinksHadler() {
 
   navLinks.forEach((link) => {
     //Hover in
-    link.addEventListener("mouseover", () => {
+    link.addEventListener("mouseenter", () => {
       if (link.classList.contains("is-opened")) {
         scramble(link, "Close");
       } else scrambleIn(link);
