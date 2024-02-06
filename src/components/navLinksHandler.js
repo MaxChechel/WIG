@@ -52,20 +52,15 @@ export default function navLinksHadler() {
               top: 0,
               duration: 0,
             });
-          tlIn
-            .to(".navbar_menus-wrapper", {
-              paddingTop: "100%",
-              duration: 0.4,
-            })
-            .to(
-              `[data-nav-list=${name}]`,
-              {
-                height: "auto",
-                duration: 0.8,
-                ease: "power4.out",
-              },
-              0.2
-            );
+          tlIn.to(
+            `[data-nav-list=${name}]`,
+            {
+              height: "auto",
+              duration: 0.8,
+              ease: "power4.out",
+            },
+            0.2
+          );
         } else {
           const tl = gsap.timeline();
           tl.call(() => {})
