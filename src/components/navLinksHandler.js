@@ -44,7 +44,7 @@ export default function navLinksHadler() {
           const tlIn = gsap.timeline();
           tlOut
             .to(menu, {
-              top: "auto",
+              top: "0",
               duration: 0,
             })
             .to(menu, {
