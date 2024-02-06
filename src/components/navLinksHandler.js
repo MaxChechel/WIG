@@ -100,7 +100,7 @@ export default function navLinksHadler() {
       console.log("test");
       if (link.classList.contains("is-opened")) {
         scramble(linkTextEl, "Close");
-      } else scrambleIn(linkTextEl);
+      } else scrambleIn(link);
     });
     //Hover out
     link.addEventListener("mouseleave", () => {
