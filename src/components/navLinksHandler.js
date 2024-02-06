@@ -63,9 +63,13 @@ export default function navLinksHadler() {
             delay: 0.2,
             duration: 0.8,
             ease: "power4.out",
-          }).call(() => {
-            nav.classList.add("is-active");
-          }, "+=0.2");
+          }).call(
+            () => {
+              nav.classList.add("is-active");
+            },
+            null,
+            "+=0.2"
+          );
         }
       }
     });
@@ -114,9 +118,13 @@ export default function navLinksHadler() {
               height: 0,
               duration: 0.8,
               ease: "power4.in",
-            }).call(() => {
-              nav.classList.remove("is-active");
-            }, "+=0.2");
+            }).call(
+              () => {
+                nav.classList.remove("is-active");
+              },
+              null,
+              "+=0.2"
+            );
             //   .to(
             //     ".blog-list_question h3",
             //     {
