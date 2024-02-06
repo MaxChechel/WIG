@@ -41,20 +41,11 @@ export default function navLinksHadler() {
         if (menu.getAttribute("data-nav-list") !== name) {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
-          tlOut
-            .to(menu, {
-              top: "auto",
-              duration: 0,
-            })
-            .to(menu, {
-              height: 0,
-              duration: 0.8,
-              ease: "power4.out",
-            })
-            .to(menu, {
-              top: 0,
-              duration: 0,
-            });
+          tlOut.to(menu, {
+            height: 0,
+            duration: 0.8,
+            ease: "power4.out",
+          });
           tlIn.to(
             `[data-nav-list=${name}]`,
             {
