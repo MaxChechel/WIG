@@ -63,21 +63,16 @@ export default function navLinksHadler() {
           );
         } else {
           const tl = gsap.timeline();
-          tl.call(() => {})
-            .to(".navbar_menus-wrapper", {
-              paddingTop: "100%",
-              duration: 0.4,
-            })
-            .to(
-              menu,
-              {
-                height: "auto",
-                delay: 0.2,
-                duration: 0.8,
-                ease: "power4.out",
-              },
-              0
-            );
+          tl.call(() => {}).to(
+            menu,
+            {
+              height: "auto",
+              delay: 0.2,
+              duration: 0.8,
+              ease: "power4.out",
+            },
+            0
+          );
         }
       }
     });
