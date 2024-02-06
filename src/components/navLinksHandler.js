@@ -68,7 +68,7 @@ export default function navLinksHadler() {
               nav.classList.add("is-active");
             },
             null,
-            "+=0.2"
+            "<20%"
           );
         }
       }
@@ -123,7 +123,7 @@ export default function navLinksHadler() {
                 nav.classList.remove("is-active");
               },
               null,
-              "+=0.2"
+              "<80%"
             );
             //   .to(
             //     ".blog-list_question h3",
