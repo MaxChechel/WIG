@@ -44,7 +44,7 @@ export default function navLinksHadler() {
           const tlIn = gsap.timeline();
           tlOut
             .to(".navbar_menus-wrapper", {
-              paddingTop: "5em",
+              paddingTop: "100%",
               duration: 0.4,
             })
             .to(menu, {
