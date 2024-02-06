@@ -96,7 +96,7 @@ export default function navLinksHadler() {
   navLinks.forEach((link) => {
     const linkTextEl = link.querySelector(".navbar_link-text");
     //Hover in
-    link.addEventListener("mouseenter", () => {
+    link.addEventListener("mouseover", () => {
       if (link.classList.contains("is-opened")) {
         scramble(linkTextEl, "Close");
       } else scrambleIn(linkTextEl);
