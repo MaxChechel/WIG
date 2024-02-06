@@ -71,14 +71,6 @@ export default function navLinksHadler() {
             },
             "<5%"
           );
-
-          //   .call(
-          //     () => {
-          //       nav.classList.add("is-active");
-          //     },
-          //     null,
-          //     "<20%"
-          //   );
         }
       }
     });
@@ -127,13 +119,23 @@ export default function navLinksHadler() {
               height: 0,
               duration: 0.8,
               ease: "power4.in",
-            }).call(
-              () => {
-                nav.classList.remove("is-active");
-              },
-              null,
-              "<80%"
-            );
+            })
+              .to(
+                " .navbar_component",
+                {
+                  color: "#2d2d2b",
+                  duration: 0.25,
+                },
+                "<90%"
+              )
+              .to(
+                ".navbar_logo-link",
+                {
+                  color: "#3a8cf7",
+                  duration: 0.25,
+                },
+                "<0%"
+              );
             //   .to(
             //     ".blog-list_question h3",
             //     {
