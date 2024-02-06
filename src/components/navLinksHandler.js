@@ -63,13 +63,21 @@ export default function navLinksHadler() {
             delay: 0.2,
             duration: 0.8,
             ease: "power4.out",
-          }).call(
-            () => {
-              nav.classList.add("is-active");
+          }).to(
+            nav,
+            {
+              color: "#fff",
+              duration: 0.25,
             },
-            null,
             "<20%"
           );
+          //   .call(
+          //     () => {
+          //       nav.classList.add("is-active");
+          //     },
+          //     null,
+          //     "<20%"
+          //   );
         }
       }
     });
