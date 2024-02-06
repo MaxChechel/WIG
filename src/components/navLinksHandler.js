@@ -104,7 +104,7 @@ export default function navLinksHadler() {
     });
     //Hover out
     link.addEventListener("mouseleave", () => {
-      scrambleOut(linkTextEl);
+      scrambleOut(link);
     });
 
     //Click in
