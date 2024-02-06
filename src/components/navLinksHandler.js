@@ -37,12 +37,15 @@ export default function navLinksHadler() {
       menu.getAttribute("data-nav-list") === name
         ? menu.classList.add("is-opened")
         : null;
-      const target = document.querySelector(`[data-nav-list=${name}]`);
       if (menu.classList.contains("is-opened")) {
         if (menu.getAttribute("data-nav-list") !== name) {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
           tlOut
+            .to(menu, {
+              top: "auto",
+              duration: 0,
+            })
             .to(menu, {
               height: 0,
               duration: 0.8,
@@ -63,7 +66,7 @@ export default function navLinksHadler() {
           );
         } else {
           const tl = gsap.timeline();
-          tl.call(() => {}).to(
+          tl.to(
             menu,
             {
               height: "auto",
