@@ -3,6 +3,7 @@ import scramble from "./scrambleText";
 
 export default function navLinksHadler() {
   //Nav links hover
+  const nav = document.querySelector(".navbar_component");
   const navLinks = document.querySelectorAll(".navbar_link");
   const navMenus = document.querySelectorAll(".navbar_menu-container");
 
@@ -57,7 +58,7 @@ export default function navLinksHadler() {
           );
         } else {
           const tl = gsap.timeline();
-          tl.to(
+          tl.call(() => nav.classList.add("is-active")).to(
             menu,
             {
               height: "auto",
