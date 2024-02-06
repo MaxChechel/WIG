@@ -4,7 +4,7 @@ import scramble from "./scrambleText";
 export default function navLinksHadler() {
   //Nav links hover
   const navLinks = document.querySelectorAll(".navbar_link");
-  //const navMenus = document.querySelectorAll(".nav-list_wrapper");
+  const navMenus = document.querySelectorAll(".navbar_menu-container");
 
   function scrambleIn(link) {
     const linkTextEl = link.querySelector(".navbar_link-text");
@@ -60,7 +60,7 @@ export default function navLinksHadler() {
             .to(
               `[data-nav-list=${name}]`,
               {
-                height: "100vh",
+                height: "auto",
                 duration: 0.8,
                 ease: "power4.out",
               },
@@ -71,7 +71,7 @@ export default function navLinksHadler() {
           tl.call(() => {}).to(
             menu,
             {
-              height: "100vh",
+              height: "auto",
               delay: 0.2,
               duration: 0.8,
               ease: "power4.out",
@@ -105,52 +105,52 @@ export default function navLinksHadler() {
     });
 
     //Click in
-    // link.addEventListener("click", (e) => {
-    //   navLinks.forEach((link) => {
-    //     const name = link.getAttribute("data-nav-link");
-    //     const dropdown = document.querySelector(`[data-nav-list=${name}]`);
+    link.addEventListener("click", (e) => {
+      navLinks.forEach((link) => {
+        const name = link.getAttribute("data-nav-link");
+        const dropdown = document.querySelector(`[data-nav-list=${name}]`);
 
-    //     if (link === e.currentTarget) {
-    //       if (!link.classList.contains("is-opened")) {
-    //         link.classList.add("is-opened");
-    //         //dropdown.classList.add("is-opened");
-    //         scramble(link, "Close");
-    //         // closeNavMenu(link);
-    //         openNavMenu(link);
-    //       } else {
-    //         scrambleIn(link);
-    //         const tl = gsap.timeline();
-    //         tl.to(`[data-nav-list].is-opened`, {
-    //           height: 0,
-    //           duration: 0.8,
-    //           ease: "power4.in",
-    //         })
-    //           .to(
-    //             ".blog-list_question h3",
-    //             {
-    //               opacity: 0,
-    //               stagger: { each: 0.05, start: "end" },
-    //             },
-    //             0.2
-    //           )
-    //           .to(
-    //             ".blog-list_divider",
-    //             {
-    //               opacity: 0,
-    //               width: "0%",
-    //               stagger: { each: 0.05, start: "end" },
-    //             },
-    //             0.2
-    //           );
-    //         link.classList.remove("is-opened");
-    //       }
-    //     } else if (link !== e.currentTarget) {
-    //       if (link.classList.contains("is-opened")) {
-    //         link.classList.remove("is-opened");
-    //         scrambleIn(link);
-    //       }
-    //     }
-    //   });
-    // });
+        if (link === e.currentTarget) {
+          if (!link.classList.contains("is-opened")) {
+            link.classList.add("is-opened");
+            //dropdown.classList.add("is-opened");
+            scramble(link, "Close");
+            // closeNavMenu(link);
+            openNavMenu(link);
+          } else {
+            scrambleIn(link);
+            const tl = gsap.timeline();
+            tl.to(`[data-nav-list].is-opened`, {
+              height: 0,
+              duration: 0.8,
+              ease: "power4.in",
+            });
+            //   .to(
+            //     ".blog-list_question h3",
+            //     {
+            //       opacity: 0,
+            //       stagger: { each: 0.05, start: "end" },
+            //     },
+            //     0.2
+            //   )
+            //   .to(
+            //     ".blog-list_divider",
+            //     {
+            //       opacity: 0,
+            //       width: "0%",
+            //       stagger: { each: 0.05, start: "end" },
+            //     },
+            //     0.2
+            //   );
+            link.classList.remove("is-opened");
+          }
+        } else if (link !== e.currentTarget) {
+          if (link.classList.contains("is-opened")) {
+            link.classList.remove("is-opened");
+            scrambleIn(link);
+          }
+        }
+      });
+    });
   });
 }
