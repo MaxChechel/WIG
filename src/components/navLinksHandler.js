@@ -89,7 +89,6 @@ export default function navLinksHadler() {
     const linkTextEl = link.querySelector(".navbar_link-text");
     //Hover in
     link.addEventListener("mouseenter", () => {
-      console.log("test");
       if (link.classList.contains("is-opened")) {
         scramble(linkTextEl, "Close");
       } else scrambleIn(link);
@@ -136,29 +135,12 @@ export default function navLinksHadler() {
                 },
                 "<0%"
               );
-            //   .to(
-            //     ".blog-list_question h3",
-            //     {
-            //       opacity: 0,
-            //       stagger: { each: 0.05, start: "end" },
-            //     },
-            //     0.2
-            //   )
-            //   .to(
-            //     ".blog-list_divider",
-            //     {
-            //       opacity: 0,
-            //       width: "0%",
-            //       stagger: { each: 0.05, start: "end" },
-            //     },
-            //     0.2
-            //   );
             link.classList.remove("is-opened");
           }
         } else if (link !== e.currentTarget) {
           if (link.classList.contains("is-opened")) {
             link.classList.remove("is-opened");
-            scrambleIn(linkTextEl);
+            scrambleIn(link);
           }
         }
       });
