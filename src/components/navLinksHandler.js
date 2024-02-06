@@ -32,6 +32,7 @@ export default function navLinksHadler() {
 
   function openNavMenu(link) {
     const name = link.getAttribute("data-nav-link");
+
     navMenus.forEach((menu) => {
       menu.getAttribute("data-nav-list") === name
         ? menu.classList.add("is-opened")
@@ -93,15 +94,16 @@ export default function navLinksHadler() {
   }
 
   navLinks.forEach((link) => {
+    const linkTextEl = link.querySelector(".navbar_link-text");
     //Hover in
     link.addEventListener("mouseenter", () => {
       if (link.classList.contains("is-opened")) {
-        scramble(link, "Close");
-      } else scrambleIn(link);
+        scramble(linkTextEl, "Close");
+      } else scrambleIn(linkTextEl);
     });
     //Hover out
     link.addEventListener("mouseleave", () => {
-      scrambleOut(link);
+      scrambleOut(linkTextEl);
     });
 
     //Click in
@@ -114,11 +116,11 @@ export default function navLinksHadler() {
           if (!link.classList.contains("is-opened")) {
             link.classList.add("is-opened");
             //dropdown.classList.add("is-opened");
-            scramble(link, "Close");
+            scramble(linkTextEl, "Close");
             // closeNavMenu(link);
             openNavMenu(link);
           } else {
-            scrambleIn(link);
+            scrambleIn(linkTextEl);
             const tl = gsap.timeline();
             tl.to(`[data-nav-list].is-opened`, {
               height: 0,
@@ -147,7 +149,7 @@ export default function navLinksHadler() {
         } else if (link !== e.currentTarget) {
           if (link.classList.contains("is-opened")) {
             link.classList.remove("is-opened");
-            scrambleIn(link);
+            scrambleIn(linkTextEl);
           }
         }
       });
