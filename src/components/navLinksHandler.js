@@ -43,10 +43,6 @@ export default function navLinksHadler() {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
           tlOut
-            .to(".navbar_menus-wrapper", {
-              paddingTop: "100%",
-              duration: 0.4,
-            })
             .to(menu, {
               height: 0,
               duration: 0.8,
@@ -57,7 +53,10 @@ export default function navLinksHadler() {
               duration: 0,
             });
           tlIn
-            .call(() => {})
+            .to(".navbar_menus-wrapper", {
+              paddingTop: "100%",
+              duration: 0.4,
+            })
             .to(
               `[data-nav-list=${name}]`,
               {
