@@ -112,11 +112,14 @@ export default function navLinksHadler() {
           } else {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
-            tl.to(`[data-nav-list].is-opened`, {
-              height: 0,
-              duration: 0.8,
-              ease: "power4.in",
-            });
+            tl.call(() => nav.classList.remove("is-active")).to(
+              `[data-nav-list].is-opened`,
+              {
+                height: 0,
+                duration: 0.8,
+                ease: "power4.in",
+              }
+            );
             //   .to(
             //     ".blog-list_question h3",
             //     {
