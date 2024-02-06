@@ -3,7 +3,6 @@ import scramble from "./scrambleText";
 
 export default function navLinksHadler() {
   //Nav links hover
-  const nav = document.querySelector(".navbar_component");
   const navLinks = document.querySelectorAll(".navbar_link");
   const navMenus = document.querySelectorAll(".navbar_menu-container");
 
@@ -23,12 +22,6 @@ export default function navLinksHadler() {
       if (link.getAttribute("data-nav-link") === "newsletter")
         scramble(linkTextEl, "Newsletter");
     } else scramble(linkTextEl, "Close");
-  }
-
-  function removeOpenedClas() {
-    navLinks.forEach((link) => {
-      link.classList.remove("is-opened");
-    });
   }
 
   function openNavMenu(link) {
@@ -102,14 +95,11 @@ export default function navLinksHadler() {
     link.addEventListener("click", (e) => {
       navLinks.forEach((link) => {
         const name = link.getAttribute("data-nav-link");
-        const dropdown = document.querySelector(`[data-nav-list=${name}]`);
 
         if (link === e.currentTarget) {
           if (!link.classList.contains("is-opened")) {
             link.classList.add("is-opened");
-            //dropdown.classList.add("is-opened");
             scramble(linkTextEl, "Close");
-            // closeNavMenu(link);
             openNavMenu(link);
           } else {
             scrambleIn(linkTextEl);
