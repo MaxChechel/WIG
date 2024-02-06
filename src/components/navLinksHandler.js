@@ -69,7 +69,7 @@ export default function navLinksHadler() {
               color: "#fff",
               duration: 0.25,
             },
-            "<20%"
+            "<5%"
           );
           //   .call(
           //     () => {
