@@ -58,16 +58,12 @@ export default function navLinksHadler() {
           );
         } else {
           const tl = gsap.timeline();
-          tl.call(() => nav.classList.add("is-active")).to(
-            menu,
-            {
-              height: "auto",
-              delay: 0.2,
-              duration: 0.8,
-              ease: "power4.out",
-            },
-            0
-          );
+          tl.to(menu, {
+            height: "auto",
+            delay: 0.2,
+            duration: 0.8,
+            ease: "power4.out",
+          }).call(() => nav.classList.add("is-active"), "<20%");
         }
       }
     });
@@ -112,14 +108,11 @@ export default function navLinksHadler() {
           } else {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
-            tl.call(() => nav.classList.remove("is-active")).to(
-              `[data-nav-list].is-opened`,
-              {
-                height: 0,
-                duration: 0.8,
-                ease: "power4.in",
-              }
-            );
+            tl.to(`[data-nav-list].is-opened`, {
+              height: 0,
+              duration: 0.8,
+              ease: "power4.in",
+            }).call(() => nav.classList.remove("is-active"), "<80%");
             //   .to(
             //     ".blog-list_question h3",
             //     {
