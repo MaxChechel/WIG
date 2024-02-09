@@ -35,18 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    navMenu.addEventListener("mouseleave", function () {
-      const state = Flip.getState(navTagShape, {
-        props: "opacity",
-        simple: true,
-      });
-      navTagShape.classList.remove("is-active");
-      Flip.from(state, {
-        absolute: true,
-        duration: 0.3,
-        ease: "power2.out",
-        scale: true,
-      });
-    });
+    // navMenu.addEventListener("mouseleave", function () {
+    //   const state = Flip.getState(navTagShape, {
+    //     props: "opacity",
+    //     simple: true,
+    //   });
+    //   navTagShape.classList.remove("is-active");
+    //   Flip.from(state, {
+    //     absolute: true,
+    //     duration: 0.3,
+    //     ease: "power2.out",
+    //     scale: true,
+    //   });
+    // });
   });
 });
