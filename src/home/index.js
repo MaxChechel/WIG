@@ -17,13 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   mm.add("(hover:hover)", () => {
     navLinksHadler();
 
-    navTags.forEach(function (link) {
-      link.addEventListener("mouseenter", function () {
+    navTags.forEach(function (tag) {
+      tag.addEventListener("mouseenter", function () {
         const state = Flip.getState(navTagShape, {
           props: "opacity",
           simple: true,
         });
         navTagShape.classList.add("is-active");
+        tag.classList.add("is-active");
 
         this.appendChild(navTagShape);
 
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
           duration: 0.3,
           ease: "power2.out",
         });
+      });
+      tag.addEventListener("mouseleave", function () {
+        tag.classList.remove("is-active");
       });
     });
 
