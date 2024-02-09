@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
           simple: true,
         });
         navTagShape.classList.add("is-active");
+        navTags.forEach(function (item) {
+          item.classList.remove("is-active");
+        });
         tag.classList.add("is-active");
 
         this.appendChild(navTagShape);
@@ -33,9 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
           duration: 0.3,
           ease: "power2.out",
         });
-      });
-      tag.addEventListener("mouseleave", function () {
-        tag.classList.remove("is-active");
       });
     });
 
