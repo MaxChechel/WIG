@@ -40,15 +40,32 @@ export default function navLinksHadler() {
             duration: 0.8,
             ease: "power4.out",
           });
-          tlIn.to(
-            `[data-nav-list=${name}]`,
-            {
-              height: "auto",
-              duration: 0.8,
-              ease: "power4.out",
-            },
-            0.2
-          );
+          if (menu.getAttribute("data-nav-list") === "categories") {
+            tlIn
+              .to(
+                `[data-nav-list=${name}]`,
+                {
+                  height: "auto",
+                  duration: 0.8,
+                  ease: "power4.out",
+                },
+                0.2
+              )
+              .to(".navbar_tag-cms-item", {
+                opacity: 1,
+                stagger: { each: 0.05 },
+              });
+          } else {
+            tlIn.to(
+              `[data-nav-list=${name}]`,
+              {
+                height: "auto",
+                duration: 0.8,
+                ease: "power4.out",
+              },
+              0.2
+            );
+          }
         } else {
           const tl = gsap.timeline();
           tl.to(menu, {
