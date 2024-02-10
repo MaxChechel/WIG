@@ -6,10 +6,8 @@ import navLinksHadler from "../components/navLinksHandler";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 
-const navTags = document.querySelectorAll(".navbar_tags-wrapper a");
-const navTagShape = document.querySelector(
-  ".navbar_tags-wrapper .navbar_tag-shape"
-);
+const navTags = document.querySelectorAll(".navbar_tags-list a");
+const navTagShape = document.querySelector(".navbar_tag-shape");
 
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,19 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
-
-    // navMenu.addEventListener("mouseleave", function () {
-    //   const state = Flip.getState(navTagShape, {
-    //     props: "opacity",
-    //     simple: true,
-    //   });
-    //   navTagShape.classList.remove("is-active");
-    //   Flip.from(state, {
-    //     absolute: true,
-    //     duration: 0.3,
-    //     ease: "power2.out",
-    //     scale: true,
-    //   });
-    // });
   });
 });
