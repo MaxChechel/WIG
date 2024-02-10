@@ -41,6 +41,7 @@ export default function navLinksHadler() {
             ease: "power4.out",
           });
           if (menu.getAttribute("data-nav-list") === "categories") {
+            console.log(menu);
             tlIn
               .to(
                 `[data-nav-list=${name}]`,
