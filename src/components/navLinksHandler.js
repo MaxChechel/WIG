@@ -51,10 +51,14 @@ export default function navLinksHadler() {
                 },
                 0.2
               )
-              .to(".navbar_tag-cms-item", {
-                opacity: 1,
-                stagger: { each: 0.05 },
-              });
+              .to(
+                ".navbar_tag-cms-item",
+                {
+                  opacity: 1,
+                  stagger: { each: 0.05 },
+                },
+                "<50%"
+              );
           } else {
             tlIn.to(
               `[data-nav-list=${name}]`,
@@ -83,10 +87,14 @@ export default function navLinksHadler() {
                 },
                 "<5%"
               )
-              .to(".navbar_tag-cms-item", {
-                opacity: 1,
-                stagger: { each: 0.05 },
-              });
+              .to(
+                ".navbar_tag-cms-item",
+                {
+                  opacity: 1,
+                  stagger: { each: 0.05 },
+                },
+                "<50%"
+              );
           } else {
             tl.to(menu, {
               height: "auto",
