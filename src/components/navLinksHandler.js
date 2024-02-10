@@ -150,7 +150,7 @@ export default function navLinksHadler() {
           } else {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
-            if (menu.getAttribute("data-nav-list") === "categories") {
+            if (link.getAttribute("data-nav-list") === "categories") {
               tl.to(`[data-nav-list].is-opened`, {
                 height: 0,
                 duration: 0.8,
