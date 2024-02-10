@@ -41,7 +41,6 @@ export default function navLinksHadler() {
             ease: "power4.out",
           });
           if (menu.getAttribute("data-nav-list") === "categories") {
-            console.log(menu);
             tlIn
               .to(
                 `[data-nav-list=${name}]`,
@@ -69,19 +68,40 @@ export default function navLinksHadler() {
           }
         } else {
           const tl = gsap.timeline();
-          tl.to(menu, {
-            height: "auto",
-            delay: 0.2,
-            duration: 0.8,
-            ease: "power4.out",
-          }).to(
-            ".navbar_logo-link, .navbar_component",
-            {
-              color: "#fff",
-              duration: 0.25,
-            },
-            "<5%"
-          );
+          if (menu.getAttribute("data-nav-list") === "categories") {
+            tl.to(menu, {
+              height: "auto",
+              delay: 0.2,
+              duration: 0.8,
+              ease: "power4.out",
+            })
+              .to(
+                ".navbar_logo-link, .navbar_component",
+                {
+                  color: "#fff",
+                  duration: 0.25,
+                },
+                "<5%"
+              )
+              .to(".navbar_tag-cms-item", {
+                opacity: 1,
+                stagger: { each: 0.05 },
+              });
+          } else {
+            tl.to(menu, {
+              height: "auto",
+              delay: 0.2,
+              duration: 0.8,
+              ease: "power4.out",
+            }).to(
+              ".navbar_logo-link, .navbar_component",
+              {
+                color: "#fff",
+                duration: 0.25,
+              },
+              "<5%"
+            );
+          }
         }
       }
     });
