@@ -150,27 +150,59 @@ export default function navLinksHadler() {
           } else {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
-            tl.to(`[data-nav-list].is-opened`, {
-              height: 0,
-              duration: 0.8,
-              ease: "power4.in",
-            })
-              .to(
-                " .navbar_component",
-                {
-                  color: "#2d2d2b",
-                  duration: 0.25,
-                },
-                "<90%"
-              )
-              .to(
-                ".navbar_logo-link",
-                {
-                  color: "#3a8cf7",
-                  duration: 0.25,
-                },
-                "<0%"
-              );
+            if (menu.getAttribute("data-nav-list") === "categories") {
+              tl.to(`[data-nav-list].is-opened`, {
+                height: 0,
+                duration: 0.8,
+                ease: "power4.in",
+              })
+                .to(
+                  " .navbar_component",
+                  {
+                    color: "#2d2d2b",
+                    duration: 0.25,
+                  },
+                  "<90%"
+                )
+                .to(
+                  ".navbar_logo-link",
+                  {
+                    color: "#3a8cf7",
+                    duration: 0.25,
+                  },
+                  "<0%"
+                )
+                .to(
+                  ".navbar_tag-cms-item",
+                  {
+                    opacity: 0,
+                  },
+                  "<50%"
+                );
+            } else {
+              tl.to(`[data-nav-list].is-opened`, {
+                height: 0,
+                duration: 0.8,
+                ease: "power4.in",
+              })
+                .to(
+                  " .navbar_component",
+                  {
+                    color: "#2d2d2b",
+                    duration: 0.25,
+                  },
+                  "<90%"
+                )
+                .to(
+                  ".navbar_logo-link",
+                  {
+                    color: "#3a8cf7",
+                    duration: 0.25,
+                  },
+                  "<0%"
+                );
+            }
+
             link.classList.remove("is-opened");
           }
         } else if (link !== e.currentTarget) {
