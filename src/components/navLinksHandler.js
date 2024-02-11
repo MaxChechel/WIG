@@ -133,15 +133,18 @@ export default function navLinksHadler() {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
 
-            tl.to(
-              `[data-nav-list].is-opened`,
-              {
-                height: 0,
-                duration: 0.8,
-                ease: "power4.in",
-              },
-              "<30%"
-            )
+            tl.to(`[data-nav-list].is-opened .navbar_menu-container`, {
+              opacity: 0,
+            })
+              .to(
+                `[data-nav-list].is-opened`,
+                {
+                  height: 0,
+                  duration: 0.8,
+                  ease: "power4.in",
+                },
+                "<30%"
+              )
               .to(
                 " .navbar_component",
                 {
