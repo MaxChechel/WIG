@@ -46,7 +46,7 @@ export default function navLinksHadler() {
                 duration: 0.8,
                 ease: "power4.out",
               },
-              "<30%"
+              "<10%"
             );
 
           tlIn
@@ -143,7 +143,7 @@ export default function navLinksHadler() {
                   duration: 0.8,
                   ease: "power4.in",
                 },
-                "<30%"
+                "<10%"
               )
               .to(
                 " .navbar_component",
