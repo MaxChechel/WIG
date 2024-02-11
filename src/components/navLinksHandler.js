@@ -41,15 +41,23 @@ export default function navLinksHadler() {
             ease: "power4.out",
           });
 
-          tlIn.to(
-            `[data-nav-list=${name}]`,
-            {
-              height: "auto",
-              duration: 0.8,
-              ease: "power4.out",
-            },
-            0.2
-          );
+          tlIn
+            .to(
+              `[data-nav-list=${name}]`,
+              {
+                height: "auto",
+                duration: 0.8,
+                ease: "power4.out",
+              },
+              0.2
+            )
+            .to(
+              `[data-nav-list=${name}] .navbar_menu-container`,
+              {
+                opacity: 1,
+              },
+              "<30%"
+            );
         } else {
           const tl = gsap.timeline();
 
@@ -58,14 +66,22 @@ export default function navLinksHadler() {
             delay: 0.2,
             duration: 0.8,
             ease: "power4.out",
-          }).to(
-            ".navbar_logo-link, .navbar_component",
-            {
-              color: "#fff",
-              duration: 0.25,
-            },
-            "<5%"
-          );
+          })
+            .to(
+              ".navbar_logo-link, .navbar_component",
+              {
+                color: "#fff",
+                duration: 0.25,
+              },
+              "<5%"
+            )
+            .to(
+              menu.querySelector(".navbar_menu-container"),
+              {
+                opacity: 1,
+              },
+              "<30%"
+            );
         }
       }
     });
