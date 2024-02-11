@@ -153,11 +153,18 @@ export default function navLinksHadler() {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
 
-            tl.to(`[data-nav-list].is-opened`, {
-              height: 0,
-              duration: 0.8,
-              ease: "power4.in",
+            tl.to(".navbar_tag-cms-item", {
+              opacity: 0,
             })
+              .to(
+                `[data-nav-list].is-opened`,
+                {
+                  height: 0,
+                  duration: 0.8,
+                  ease: "power4.in",
+                },
+                "<30%"
+              )
               .to(
                 " .navbar_component",
                 {
@@ -173,13 +180,6 @@ export default function navLinksHadler() {
                   duration: 0.25,
                 },
                 "<0%"
-              )
-              .to(
-                ".navbar_tag-cms-item",
-                {
-                  opacity: 0,
-                },
-                "<50%"
               );
 
             link.classList.remove("is-opened");
