@@ -50,6 +50,12 @@ export default function navLinksHadler() {
               },
               "<10%"
             );
+          if (menu.getAttribute("data-nav-list") === "categories") {
+            navTags.forEach(function (item) {
+              item.classList.remove("is-active");
+            });
+            navTagShape.classList.remove("is-active");
+          }
 
           tlIn
             .to(
