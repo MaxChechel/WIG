@@ -5,6 +5,7 @@ export default function navLinksHadler() {
   //Nav links hover
   const navLinks = document.querySelectorAll(".navbar_link");
   const navMenus = document.querySelectorAll(".navbar_menu-container");
+  const navTagShape = document.querySelector(".navbar_tag-shape");
 
   function scrambleIn(link) {
     const linkTextEl = link.querySelector(".navbar_link-text");
@@ -163,6 +164,7 @@ export default function navLinksHadler() {
               );
 
             link.classList.remove("is-opened");
+            navTagShape.classList.remove("is-active");
           }
         } else if (link !== e.currentTarget) {
           if (link.classList.contains("is-opened")) {
