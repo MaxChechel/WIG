@@ -6,6 +6,7 @@ export default function navLinksHadler() {
   const navLinks = document.querySelectorAll(".navbar_link");
   const navMenus = document.querySelectorAll(".navbar_menu-container");
   const navTagShape = document.querySelector(".navbar_tag-shape");
+  const navTags = document.querySelectorAll(".navbar_tags-list a");
 
   function scrambleIn(link) {
     const linkTextEl = link.querySelector(".navbar_link-text");
@@ -164,6 +165,9 @@ export default function navLinksHadler() {
               );
 
             link.classList.remove("is-opened");
+            navTags.forEach(function (item) {
+              item.classList.remove("is-active");
+            });
             navTagShape.classList.remove("is-active");
           }
         } else if (link !== e.currentTarget) {
