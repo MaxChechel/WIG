@@ -35,85 +35,37 @@ export default function navLinksHadler() {
         if (menu.getAttribute("data-nav-list") !== name) {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
-          tlOut
-            .to(menu, {
-              height: 0,
+          tlOut.to(menu, {
+            height: 0,
+            duration: 0.8,
+            ease: "power4.out",
+          });
+
+          tlIn.to(
+            `[data-nav-list=${name}]`,
+            {
+              height: "auto",
               duration: 0.8,
               ease: "power4.out",
-            })
-            .to(".navbar_tag-cms-item", {
-              opacity: 0,
-            });
-          if (menu.getAttribute("data-nav-list") === "categories") {
-            tlIn
-              .to(
-                `[data-nav-list=${name}]`,
-                {
-                  height: "auto",
-                  duration: 0.8,
-                  ease: "power4.out",
-                },
-                0.2
-              )
-              .to(
-                ".navbar_tag-cms-item",
-                {
-                  opacity: 1,
-                  stagger: { each: 0.05 },
-                },
-                "<50%"
-              );
-          } else {
-            tlIn.to(
-              `[data-nav-list=${name}]`,
-              {
-                height: "auto",
-                duration: 0.8,
-                ease: "power4.out",
-              },
-              0.2
-            );
-          }
+            },
+            0.2
+          );
         } else {
           const tl = gsap.timeline();
-          if (menu.getAttribute("data-nav-list") === "categories") {
-            tl.to(menu, {
-              height: "auto",
-              delay: 0.2,
-              duration: 0.8,
-              ease: "power4.out",
-            })
-              .to(
-                ".navbar_logo-link, .navbar_component",
-                {
-                  color: "#fff",
-                  duration: 0.25,
-                },
-                "<5%"
-              )
-              .to(
-                ".navbar_tag-cms-item",
-                {
-                  opacity: 1,
-                  stagger: { each: 0.05 },
-                },
-                "<50%"
-              );
-          } else {
-            tl.to(menu, {
-              height: "auto",
-              delay: 0.2,
-              duration: 0.8,
-              ease: "power4.out",
-            }).to(
-              ".navbar_logo-link, .navbar_component",
-              {
-                color: "#fff",
-                duration: 0.25,
-              },
-              "<5%"
-            );
-          }
+
+          tl.to(menu, {
+            height: "auto",
+            delay: 0.2,
+            duration: 0.8,
+            ease: "power4.out",
+          }).to(
+            ".navbar_logo-link, .navbar_component",
+            {
+              color: "#fff",
+              duration: 0.25,
+            },
+            "<5%"
+          );
         }
       }
     });
@@ -157,18 +109,15 @@ export default function navLinksHadler() {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
 
-            tl.to(".navbar_tag-cms-item", {
-              opacity: 0,
-            })
-              .to(
-                `[data-nav-list].is-opened`,
-                {
-                  height: 0,
-                  duration: 0.8,
-                  ease: "power4.in",
-                },
-                "<30%"
-              )
+            tl.to(
+              `[data-nav-list].is-opened`,
+              {
+                height: 0,
+                duration: 0.8,
+                ease: "power4.in",
+              },
+              "<30%"
+            )
               .to(
                 " .navbar_component",
                 {
