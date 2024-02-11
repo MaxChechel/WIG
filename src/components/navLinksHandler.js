@@ -35,11 +35,19 @@ export default function navLinksHadler() {
         if (menu.getAttribute("data-nav-list") !== name) {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
-          tlOut.to(menu, {
-            height: 0,
-            duration: 0.8,
-            ease: "power4.out",
-          });
+          tlOut
+            .to(menu.querySelector(".navbar_menu-container"), {
+              opacity: 0,
+            })
+            .to(
+              menu,
+              {
+                height: 0,
+                duration: 0.8,
+                ease: "power4.out",
+              },
+              "<30%"
+            );
 
           tlIn
             .to(
