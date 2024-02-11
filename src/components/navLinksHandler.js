@@ -36,7 +36,7 @@ export default function navLinksHadler() {
           const tlOut = gsap.timeline();
           const tlIn = gsap.timeline();
           tlOut
-            .to(menu.querySelector(".navbar_menu-container"), {
+            .to(menu.querySelector(".navbar_menu-content-inner"), {
               opacity: 0,
             })
             .to(
@@ -60,7 +60,7 @@ export default function navLinksHadler() {
               0.2
             )
             .to(
-              `[data-nav-list=${name}] .navbar_menu-container`,
+              `[data-nav-list=${name}] .navbar_menu-content-inner`,
               {
                 opacity: 1,
               },
@@ -84,7 +84,7 @@ export default function navLinksHadler() {
               "<5%"
             )
             .to(
-              menu.querySelector(".navbar_menu-container"),
+              menu.querySelector(".navbar_menu-content-inner"),
               {
                 opacity: 1,
               },
@@ -133,7 +133,7 @@ export default function navLinksHadler() {
             scrambleIn(linkTextEl);
             const tl = gsap.timeline();
 
-            tl.to(`[data-nav-list].is-opened .navbar_menu-container`, {
+            tl.to(`[data-nav-list].is-opened .navbar_menu-content-inner`, {
               opacity: 0,
             })
               .to(
