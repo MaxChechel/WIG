@@ -187,7 +187,7 @@ export default function navLinksHadler() {
         }
       });
     };
-    link.addEventListener("click", linkClickHandler, true);
-    link.addEventListener("touchstart", linkClickHandler, true);
+    link.addEventListener("click", linkClickHandler);
+    link.addEventListener("touchstart", linkClickHandler);
   });
 }
