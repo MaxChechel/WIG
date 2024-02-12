@@ -126,64 +126,68 @@ export default function navLinksHadler() {
     });
 
     //Click in
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      navLinks.forEach((link) => {
-        const name = link.getAttribute("data-nav-link");
+    link.addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        navLinks.forEach((link) => {
+          const name = link.getAttribute("data-nav-link");
 
-        if (link === e.currentTarget) {
-          //If menu is not opened
-          if (!link.classList.contains("is-opened")) {
-            link.classList.add("is-opened");
-            scramble(linkTextEl, "Close");
-            openNavMenu(link);
-          } else {
-            //If menu is opened
-            scrambleIn(linkTextEl);
-            const tl = gsap.timeline();
+          if (link === e.currentTarget) {
+            //If menu is not opened
+            if (!link.classList.contains("is-opened")) {
+              link.classList.add("is-opened");
+              scramble(linkTextEl, "Close");
+              openNavMenu(link);
+            } else {
+              //If menu is opened
+              scrambleIn(linkTextEl);
+              const tl = gsap.timeline();
 
-            tl.to(`[data-nav-list].is-opened .navbar_menu-content-inner`, {
-              opacity: 0,
-            })
-              .to(
-                `[data-nav-list].is-opened`,
-                {
-                  height: 0,
-                  duration: 0.8,
-                  ease: "power4.in",
-                },
-                "<10%"
-              )
-              .to(
-                " .navbar_component",
-                {
-                  color: "#2d2d2b",
-                  duration: 0.25,
-                },
-                "<90%"
-              )
-              .to(
-                ".navbar_logo-link",
-                {
-                  color: "#3a8cf7",
-                  duration: 0.25,
-                },
-                "<0%"
-              );
+              tl.to(`[data-nav-list].is-opened .navbar_menu-content-inner`, {
+                opacity: 0,
+              })
+                .to(
+                  `[data-nav-list].is-opened`,
+                  {
+                    height: 0,
+                    duration: 0.8,
+                    ease: "power4.in",
+                  },
+                  "<10%"
+                )
+                .to(
+                  " .navbar_component",
+                  {
+                    color: "#2d2d2b",
+                    duration: 0.25,
+                  },
+                  "<90%"
+                )
+                .to(
+                  ".navbar_logo-link",
+                  {
+                    color: "#3a8cf7",
+                    duration: 0.25,
+                  },
+                  "<0%"
+                );
 
-            link.classList.remove("is-opened");
-            navTags.forEach(function (item) {
-              item.classList.remove("is-active");
-            });
-            navTagShape.classList.remove("is-active");
+              link.classList.remove("is-opened");
+              navTags.forEach(function (item) {
+                item.classList.remove("is-active");
+              });
+              navTagShape.classList.remove("is-active");
+            }
+          } else if (link !== e.currentTarget) {
+            if (link.classList.contains("is-opened")) {
+              link.classList.remove("is-opened");
+              scrambleIn(link);
+            }
           }
-        } else if (link !== e.currentTarget) {
-          if (link.classList.contains("is-opened")) {
-            link.classList.remove("is-opened");
-            scrambleIn(link);
-          }
-        }
-      });
-    });
+        });
+      },
+      true
+    );
   });
 }
