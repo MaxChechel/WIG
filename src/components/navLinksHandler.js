@@ -112,6 +112,7 @@ export default function navLinksHadler() {
     });
   }
   function linkClickHandler(link, e) {
+    const linkTextEl = link.querySelector(".navbar_link-text");
     e.preventDefault();
     e.stopPropagation();
     console.log(e.target);
@@ -173,7 +174,6 @@ export default function navLinksHadler() {
     });
   }
   navLinks.forEach((link) => {
-    const linkTextEl = link.querySelector(".navbar_link-text");
     //Hover in
     link.addEventListener("mouseenter", () => {
       if (link.classList.contains("is-opened")) {
