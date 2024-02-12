@@ -127,8 +127,8 @@ export default function navLinksHadler() {
 
     //Click in
 
-    const linkClickHandler = (link) => (e) => {
-      e.preventDefault();
+    function linkClickHandler(link) {
+      //e.preventDefault();
       console.log(e.target);
       navLinks.forEach((link) => {
         const name = link.getAttribute("data-nav-link");
@@ -186,7 +186,7 @@ export default function navLinksHadler() {
           }
         }
       });
-    };
+    }
     link.addEventListener("click", linkClickHandler);
     link.addEventListener("touchstart", linkClickHandler);
   });
