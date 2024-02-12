@@ -130,6 +130,7 @@ export default function navLinksHadler() {
       "click",
       (e) => {
         e.preventDefault();
+        console.log(e.target);
         navLinks.forEach((link) => {
           const name = link.getAttribute("data-nav-link");
 
