@@ -188,7 +188,7 @@ export default function navLinksHadler() {
           }
         });
       },
-      true
+      false
     );
   });
 }
