@@ -188,6 +188,6 @@ export default function navLinksHadler() {
     //Click in
 
     link.addEventListener("click", (e) => linkClickHandler(link, e));
-    link.addEventListener("touchstart", (e) => linkClickHandler(link, e));
+    link.addEventListener("touchend", (e) => linkClickHandler(link, e));
   });
 }
