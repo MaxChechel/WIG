@@ -11,10 +11,9 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
+  navLinksHadler();
   //Hovers
   mm.add("(hover:hover)", () => {
-    navLinksHadler();
-
     navTags.forEach(function (tag) {
       tag.addEventListener("mouseenter", function () {
         const state = Flip.getState(navTagShape, {
