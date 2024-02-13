@@ -125,7 +125,7 @@ export default function navLinksHadler() {
           openNavMenu(link);
         } else {
           //If menu is opened
-          scrambleIn(linkTextEl);
+          scrambleIn(link);
           const tl = gsap.timeline();
 
           tl.to(`[data-nav-list].is-opened .navbar_menu-content-inner`, {
