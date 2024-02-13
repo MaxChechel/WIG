@@ -102,15 +102,7 @@ export default function navLinksHadler() {
       }
     });
   }
-  function closeNavMenu(link) {
-    const name = link.getAttribute("data-nav-link");
-    gsap.to(`[data-nav-list]`, {
-      height: 0,
-      top: "auto",
-      duration: 1,
-      ease: "power4.out",
-    });
-  }
+
   function linkClickHandler(link, e) {
     const linkTextEl = link.querySelector(".navbar_link-text");
     e.preventDefault();
