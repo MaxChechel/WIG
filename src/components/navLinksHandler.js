@@ -174,6 +174,7 @@ export default function navLinksHadler() {
     });
   }
   navLinks.forEach((link) => {
+    const linkTextEl = link.querySelector(".navbar_link-text");
     //Hover in
     link.addEventListener("mouseenter", () => {
       if (link.classList.contains("is-opened")) {
