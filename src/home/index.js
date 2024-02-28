@@ -29,28 +29,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     player.qualityLevels(); // Initialize quality levels
 
-    // Optionally, initialize the quality selector UI
-    if (player.httpSourceSelector) {
-      player.httpSourceSelector({
-        default: "auto", // Set default quality level
-      });
-    }
-
     player.on("loadedmetadata", function () {
       const qualityLevels = player.qualityLevels();
-      console.log(qualityLevels);
-      qualityLevels.on("addqualitylevel", function (event) {
-        const qualityLevel = event.qualityLevel;
+
+      let has720p = false;
+      for (let i = 0; i < qualityLevels.length; i++) {
+        const qualityLevel = qualityLevels[i];
+
+        // Enable only the 720p quality level and disable others
         if (qualityLevel.height === 720) {
-          qualityLevels.levels_.forEach((level) => (level.enabled = false)); // Disable all levels first
-          qualityLevel.enabled = true; // Enable only 720p
+          qualityLevel.enabled = true;
+          has720p = true;
           console.log("720p quality level enabled");
+        } else {
+          qualityLevel.enabled = false;
         }
-      });
+      }
+
+      if (!has720p) {
+        console.log("720p quality level not found.");
+        // Optionally enable all levels if 720p is not found
+        for (let i = 0; i < qualityLevels.length; i++) {
+          qualityLevels[i].enabled = true;
+        }
+      }
     });
 
+    // Mute the video initially
     player.muted(true);
 
+    // Video.js event handlers
     player.on("mouseenter", () => {
       player
         .play()
