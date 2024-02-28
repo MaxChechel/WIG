@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     player.on("loadedmetadata", function () {
-      var qualityLevels = player.qualityLevels();
-
+      const qualityLevels = player.qualityLevels();
+      console.log(qualityLevels);
       qualityLevels.on("addqualitylevel", function (event) {
-        var qualityLevel = event.qualityLevel;
+        const qualityLevel = event.qualityLevel;
         if (qualityLevel.height === 720) {
           qualityLevels.levels_.forEach((level) => (level.enabled = false)); // Disable all levels first
           qualityLevel.enabled = true; // Enable only 720p
