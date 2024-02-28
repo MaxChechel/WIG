@@ -14,12 +14,9 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
   //Video
-  const videoElements = document.querySelectorAll(".video");
-
-  videoElements.forEach((el) => {
+  document.querySelectorAll(".video").forEach((el) => {
     const player = videojs(el, {
       // Plugin options here
-      // Example: enabling HTML5 playback with quality levels
       html5: {
         hls: {
           overrideNative: !videojs.browser.IS_SAFARI,
@@ -39,10 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Ensure the video is muted before playing
+    player.on("loadedmetadata", function () {
+      var qualityLevels = player.qualityLevels();
+
+      qualityLevels.on("addqualitylevel", function (event) {
+        var qualityLevel = event.qualityLevel;
+        if (qualityLevel.height === 720) {
+          qualityLevels.levels_.forEach((level) => (level.enabled = false)); // Disable all levels first
+          qualityLevel.enabled = true; // Enable only 720p
+          console.log("720p quality level enabled");
+        }
+      });
+    });
+
     player.muted(true);
 
-    // Use Video.js events for handling mouse events
     player.on("mouseenter", () => {
       player
         .play()
