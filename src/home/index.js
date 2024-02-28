@@ -2,6 +2,8 @@ import { gsap } from "gsap";
 import { Flip } from "gsap/all";
 import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
 
+import videojs from "video.js";
+
 import navLinksHadler from "../components/navLinksHandler";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
