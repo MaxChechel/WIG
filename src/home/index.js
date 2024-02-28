@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const qualityLevel = qualityLevels[i];
 
         // Enable only the 720p quality level and disable others
-        if (qualityLevel.height === 720) {
+        if (qualityLevel.height === 480) {
           qualityLevel.enabled = true;
           has720p = true;
           console.log("720p quality level enabled");
