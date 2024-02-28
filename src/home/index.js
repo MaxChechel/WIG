@@ -32,22 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
     player.on("loadedmetadata", function () {
       const qualityLevels = player.qualityLevels();
 
-      let has720p = false;
+      let has480p = false;
       for (let i = 0; i < qualityLevels.length; i++) {
         const qualityLevel = qualityLevels[i];
 
         // Enable only the 720p quality level and disable others
         if (qualityLevel.height === 480) {
           qualityLevel.enabled = true;
-          has720p = true;
-          console.log("720p quality level enabled");
+          has480p = true;
+          console.log("480p quality level enabled");
         } else {
           qualityLevel.enabled = false;
         }
       }
 
-      if (!has720p) {
-        console.log("720p quality level not found.");
+      if (!has480p) {
+        console.log("480p quality level not found.");
         // Optionally enable all levels if 720p is not found
         for (let i = 0; i < qualityLevels.length; i++) {
           qualityLevels[i].enabled = true;
