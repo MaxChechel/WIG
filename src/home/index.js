@@ -105,10 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "cmsload",
     (listInstances) => {
       console.log("cmsload Successfully loaded!");
-
-      observer.observe(cardsList, {
-        childList: true,
-        subtree: true,
+      listInstance.on("renderitems", (renderedItems) => {
+        console.log(
+          "The following items have been rendered on the Collection List: ",
+          renderedItems
+        );
+        observer.observe(cardsList, {
+          childList: true,
+          subtree: true,
+        });
       });
     },
   ]);
