@@ -86,7 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
       listInstance.on("additems", (addedItems) => {
-        console.log(addedItems);
+        console.log(
+          "The following items have been added to the CMSList memory: ",
+          addedItems
+        );
       });
     },
   ]);
