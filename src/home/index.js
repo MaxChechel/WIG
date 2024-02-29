@@ -14,7 +14,9 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
   //Video
-  document.querySelectorAll(".video").forEach((el) => {
+
+  function initVideo(target) {
+    const el = target.querySelector(".video");
     const player = videojs(el, {
       // Plugin options here
       html5: {
@@ -71,11 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
       player.pause();
       player.currentTime(0); // Reset video progress to start
     });
-  });
+  }
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
   const cardItems = document.querySelectorAll(".card_item");
+  cardItems.forEach((item) => initVideo(item));
 
   const observer = new MutationObserver((mutationsList, observer) => {
     for (const mutation of mutationsList) {
@@ -86,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // ELEMENT_NODE
             // Apply animations
             console.log(node);
+            initVideo(node);
 
             // Initialize other functionalities as needed
           }
