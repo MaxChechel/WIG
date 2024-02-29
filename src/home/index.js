@@ -85,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // The callback passes a `listInstances` array with all the `CMSList` instances on the page.
       const [listInstance] = listInstances;
-      listInstance.items.forEach((card) => card.classList.add("is-active"));
+      console.log(listInstance);
+      // listInstance.items.forEach((card) => card.classList.add("is-active"));
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
       listInstance.on("renderitems", (renderedItems) => {
