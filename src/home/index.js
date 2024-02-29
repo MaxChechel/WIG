@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
+
   const observer = new MutationObserver((mutationsList, observer) => {
     for (const mutation of mutationsList) {
       if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
@@ -97,12 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
+  setTimeout(() => {
+    observer.observe(cardsList, {
+      childList: true,
+      subtree: true,
+    });
+  }, 2000);
   // Start observing as before
-  observer.observe(cardsList, {
-    childList: true,
-    subtree: true,
-  });
+
   ///////////////
 
   navLinksHadler();
