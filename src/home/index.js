@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
+  const cardItems = document.querySelectorAll(".card_item");
+  cardItems.forEach((card) => card.classList.add("is-active"));
   window.fsAttributes = window.fsAttributes || [];
   window.fsAttributes.push([
     "cmsload",
@@ -86,10 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(listInstance);
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
-      listInstance.on("additems", (addedItems) => {
+      listInstance.on("renderitems", (renderedItems) => {
+        renderedItems.map((item) => item.classList);
         console.log(
-          "The following items have been added to the CMSList memory: ",
-          addedItems
+          "The following items have been rendered on the Collection List: ",
+          renderedItems
         );
       });
     },
