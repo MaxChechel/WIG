@@ -82,16 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
         mutation.addedNodes.forEach((node) => {
           // Check if the added node is the type of element you want to animate
-          if (node.nodeType === 1) {
+          if (node.nodeType === 1 && node.classList.includes(".card_item")) {
             // ELEMENT_NODE
             // Apply animations
             console.log(node);
-
-            // If the node is a video element, initialize Video.js
-            if (node.tagName === "VIDEO") {
-              console.log(node);
-              console.log("video");
-            }
 
             // Initialize other functionalities as needed
           }
