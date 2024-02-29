@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // The callback passes a `listInstances` array with all the `CMSList` instances on the page.
       const [listInstance] = listInstances;
+      console.log(listInstance);
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
       listInstance.on("additems", (addedItems) => {
