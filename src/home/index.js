@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (node.nodeType === 1) {
             // ELEMENT_NODE
             // Apply animations
-            console.log(node);
+            if (node.classList.contains(".card_item")) console.log(node);
 
             // Initialize other functionalities as needed
           }
