@@ -73,6 +73,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  //Mutation observer for new loaded items
+  const cardsList = document.querySelector(".cards_list");
+  const observer = new MutationObserver((mutationsList, observer) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach((node) => {
+          // Check if the added node is the type of element you want to animate
+          if (node.nodeType === 1) {
+            // ELEMENT_NODE
+            // Apply animations
+            console.log(node);
+
+            // If the node is a video element, initialize Video.js
+            if (node.tagName === "VIDEO") {
+              console.log(node);
+              console.log("video");
+            }
+
+            // Initialize other functionalities as needed
+          }
+        });
+      }
+    }
+  });
+
+  // Start observing as before
+  observer.observe(cardsList, {
+    childList: true,
+    subtree: true,
+  });
+  ///////////////
+
   navLinksHadler();
   //Hovers
   mm.add("(hover:hover)", () => {
