@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "cmsload",
     (listInstances) => {
       console.log("cmsload Successfully loaded!");
+      const [listInstance] = listInstances;
       listInstance.on("renderitems", (renderedItems) => {
         console.log(
           "The following items have been rendered on the Collection List: ",
