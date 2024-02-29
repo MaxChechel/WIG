@@ -75,35 +75,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
+  window.fsAttributes = window.fsAttributes || [];
+  window.fsAttributes.push([
+    "cmsload",
+    (listInstances) => {
+      console.log("cmsload Successfully loaded!");
 
-  const observer = new MutationObserver((mutationsList, observer) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach((node) => {
-          // Check if the added node is the type of element you want to animate
-          if (node.nodeType === 1) {
-            // ELEMENT_NODE
-            // Apply animations
-            console.log(node);
+      // The callback passes a `listInstances` array with all the `CMSList` instances on the page.
+      const [listInstance] = listInstances;
 
-            // If the node is a video element, initialize Video.js
-            if (node.tagName === "VIDEO") {
-              console.log(node);
-              console.log("video");
-            }
+      // The `renderitems` event runs whenever the list renders items after switching pages.
+      listInstance.on("renderitems", (renderedItems) => {
+        console.log(renderedItems);
+      });
+    },
+  ]);
+  // const observer = new MutationObserver((mutationsList, observer) => {
+  //   for (const mutation of mutationsList) {
+  //     if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+  //       mutation.addedNodes.forEach((node) => {
+  //         // Check if the added node is the type of element you want to animate
+  //         if (node.nodeType === 1) {
+  //           // ELEMENT_NODE
+  //           // Apply animations
+  //           console.log(node);
 
-            // Initialize other functionalities as needed
-          }
-        });
-      }
-    }
-  });
-  setTimeout(() => {
-    observer.observe(cardsList, {
-      childList: true,
-      subtree: true,
-    });
-  }, 2000);
+  //           // If the node is a video element, initialize Video.js
+  //           if (node.tagName === "VIDEO") {
+  //             console.log(node);
+  //             console.log("video");
+  //           }
+
+  //           // Initialize other functionalities as needed
+  //         }
+  //       });
+  //     }
+  //   }
+  // });
+  // setTimeout(() => {
+  //   observer.observe(cardsList, {
+  //     childList: true,
+  //     subtree: true,
+  //   });
+  // }, 2000);
   // Start observing as before
 
   ///////////////
