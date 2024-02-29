@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const [listInstance] = listInstances;
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
-      listInstance.on("renderitems", (renderedItems) => {
+      listInstance.on("additems", (addedItems) => {
         console.log(renderedItems);
       });
     },
