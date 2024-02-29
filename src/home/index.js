@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // The `renderitems` event runs whenever the list renders items after switching pages.
       listInstance.on("renderitems", (renderedItems) => {
-        renderedItems.map((item) => item.classList);
+        renderedItems.map((item) => item.classList.includes("is-active"));
         console.log(
           "The following items have been rendered on the Collection List: ",
           renderedItems
