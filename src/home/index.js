@@ -99,12 +99,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  setTimeout(() => {
-    observer.observe(cardsList, {
-      childList: true,
-      subtree: true,
-    });
-  }, 2000);
+
+  window.fsAttributes = window.fsAttributes || [];
+  window.fsAttributes.push([
+    "cmsload",
+    (listInstances) => {
+      console.log("cmsload Successfully loaded!");
+
+      observer.observe(cardsList, {
+        childList: true,
+        subtree: true,
+      });
+    },
+  ]);
 
   ///////////////
 
