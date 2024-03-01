@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //Init video on slides
-  const slides = document.querySelectorAll(".swiper-slide.full-slider_slide");
+  const slides = document.querySelectorAll(".card_item");
   slides.forEach((slide) => initVideo(slide));
   //Disable drag on cards inisde slides
   const videoElements = document.querySelectorAll(".vjs-tech");
