@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   slides.forEach((slide) => initVideo(slide));
   //Disable drag on cards inisde slides
   const cards = document.querySelectorAll(".card_item .video-player");
-  cards.forEach((card) =>
-    card.addEventListener("dragstart", function (event) {
-      event.preventDefault();
-    })
-  );
+  //   cards.forEach((card) =>
+  //     card.addEventListener("dragstart", function (event) {
+  //       event.preventDefault();
+  //     })
+  //   );
 
   //Cursor
   const cursor = document.querySelector(".custom-cursor");
