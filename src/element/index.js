@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: "auto",
     loop: true,
     freeMode: true,
+    noSwiping: true,
   });
 
   //Init video on slides
