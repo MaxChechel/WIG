@@ -14,15 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //Init video on slides
   const slides = document.querySelectorAll(".card_item");
   slides.forEach((slide) => initVideo(slide));
-  //Disable drag on cards inisde slides
-  const videoElements = document.querySelectorAll(".vjs-tech");
-
-  videoElements.forEach(function (videoElement) {
-    videoElement.setAttribute("draggable", "false");
-    videoElement.addEventListener("dragstart", function (e) {
-      e.preventDefault();
-    });
-  });
 
   //Cursor
   const cursor = document.querySelector(".custom-cursor");
