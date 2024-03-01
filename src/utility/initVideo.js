@@ -47,6 +47,7 @@ export default function initVideo(target) {
 
   // Video.js event handlers
   const parentCard = el.closest(".card_item");
+  console.log(parentCard);
   parentCard.on("mouseenter", () => {
     player
       .play()
