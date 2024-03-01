@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true,
     freeMode: true,
     noSwiping: true,
+    noSwipingClass: "card_item",
   });
 
   //Init video on slides
