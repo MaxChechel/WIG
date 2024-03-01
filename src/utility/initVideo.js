@@ -46,7 +46,7 @@ export default function initVideo(target) {
   player.muted(true);
 
   // Video.js event handlers
-  target.on("mouseenter", () => {
+  target.addEventListener("mouseenter", () => {
     player
       .play()
       .catch((e) =>
@@ -54,7 +54,7 @@ export default function initVideo(target) {
       );
   });
 
-  target.on("mouseleave", () => {
+  target.addEventListener("mouseleave", () => {
     player.pause();
     player.currentTime(0); // Reset video progress to start
   });
