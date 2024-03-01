@@ -7,20 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: "auto",
     loop: true,
     freeMode: true,
-    noSwiping: true,
-    noSwipingClass: "vjs-tech",
+    // noSwiping: true,
+    // noSwipingClass: "vjs-tech",
   });
 
   //Init video on slides
   const slides = document.querySelectorAll(".swiper-slide.full-slider_slide");
   slides.forEach((slide) => initVideo(slide));
   //Disable drag on cards inisde slides
-  const cards = document.querySelectorAll(".card_item .video-player");
-  //   cards.forEach((card) =>
-  //     card.addEventListener("dragstart", function (event) {
-  //       event.preventDefault();
-  //     })
-  //   );
+  const videoElements = document.querySelectorAll(".vjs-tech");
+
+  videoElements.forEach(function (videoElement) {
+    videoElement.setAttribute("draggable", "false");
+    videoElement.addEventListener("dragstart", function (e) {
+      e.preventDefault();
+    });
+  });
 
   //Cursor
   const cursor = document.querySelector(".custom-cursor");
