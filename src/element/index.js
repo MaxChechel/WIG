@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //Init video on slides
   const slides = document.querySelectorAll(".swiper-slide.full-slider_slide");
   slides.forEach((slide) => initVideo(slide));
-  const cards = document.querySelectorAll(".card_item");
+  //Disable drag on cards inisde slides
+  const cards = document.querySelectorAll(".card_item .video-player");
   cards.forEach((card) =>
     card.addEventListener("dragstart", function (event) {
       event.preventDefault();
