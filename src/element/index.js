@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import Swiper from "swiper";
+import initVideo from "../utility/initVideo";
 
 document.addEventListener("DOMContentLoaded", () => {
   const teamSwiper = new Swiper(".full-slider_wrap.swiper", {
@@ -7,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true,
     freeMode: true,
   });
+
+  //Init video on slides
+  const slides = document.querySelectorAll(".swiper-slide.card_item");
+  slides.forEach((slide) => initVideo(slide));
 
   //Cursor
   const cursor = document.querySelector(".custom-cursor");
