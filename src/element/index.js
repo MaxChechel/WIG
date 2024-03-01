@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true,
     freeMode: true,
     noSwiping: true,
-    noSwipingClass: "video-player",
+    noSwipingClass: "vjs-tech",
   });
 
   //Init video on slides
