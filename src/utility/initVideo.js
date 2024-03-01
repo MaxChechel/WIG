@@ -46,7 +46,8 @@ export default function initVideo(target) {
   player.muted(true);
 
   // Video.js event handlers
-  player.on("mouseenter", () => {
+  const parentCard = el.closest(".card_item");
+  parentCard.on("mouseenter", () => {
     player
       .play()
       .catch((e) =>
@@ -54,7 +55,7 @@ export default function initVideo(target) {
       );
   });
 
-  player.on("mouseleave", () => {
+  parentCard.on("mouseleave", () => {
     player.pause();
     player.currentTime(0); // Reset video progress to start
   });
