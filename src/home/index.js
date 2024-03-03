@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "cmsload",
     (listInstances) => {
       console.log("cmsload Successfully loaded!");
+      console.log(listInstances);
       observer.observe(cardsList, {
         childList: true,
         subtree: true,
