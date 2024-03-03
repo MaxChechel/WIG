@@ -3,7 +3,7 @@ export default function tagsCount() {
 
   navTags.forEach((tag) => {
     const slug = tag.getAttribute("data-tag-slug");
-    fetch(`/${slug}`)
+    fetch(`/category/${slug}`)
       .then((response) => {
         // Check if the request was successful
         if (response.ok) {
