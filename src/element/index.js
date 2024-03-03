@@ -2,13 +2,15 @@ import gsap from "gsap";
 import Swiper from "swiper";
 import initVideo from "../utility/initVideo";
 
+import tagsCount from "../utility/tagsCount";
+
 document.addEventListener("DOMContentLoaded", () => {
+  tagsCount();
+
   const teamSwiper = new Swiper(".full-slider_wrap.swiper", {
     slidesPerView: "auto",
     loop: true,
     freeMode: true,
-    // noSwiping: true,
-    // noSwipingClass: "vjs-tech",
   });
 
   //Init video on slides
