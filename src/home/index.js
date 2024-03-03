@@ -14,7 +14,7 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
-  //Video
+  tagsCount();
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");

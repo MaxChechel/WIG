@@ -3,6 +3,7 @@ export default function tagsCount() {
 
   navTags.forEach((tag) => {
     const slug = tag.getAttribute("data-tag-slug");
+    const tagCounter = tag.querySelector(".tag_counter");
     fetch(`/category/${slug}`)
       .then((response) => {
         // Check if the request was successful
@@ -17,7 +18,7 @@ export default function tagsCount() {
 
         // Example: Count elements with a specific class
         const itemCount = doc.querySelectorAll(".category-count").length;
-        console.log(`Number of items: ${itemCount}`);
+        tagCounter.textContent = itemCount;
 
         // You can now manipulate or extract data from 'doc' as needed
       })
