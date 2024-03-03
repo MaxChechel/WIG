@@ -4,6 +4,7 @@ import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
 
 import videojs from "video.js";
 import initVideo from "../utility/initVideo";
+import tagsCount from "../utility/tagsCount";
 
 import navLinksHadler from "../components/navLinksHandler";
 
