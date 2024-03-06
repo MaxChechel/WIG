@@ -1,7 +1,7 @@
 import tagsCount from "../utility/tagsCount";
 import navLinksHadler from "../components/navLinksHandler";
 
-fetch(`/category/${slug}`)
+fetch("/")
   .then((response) => {
     // Check if the request was successful
     if (response.ok) {
