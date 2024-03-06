@@ -1,5 +1,9 @@
+import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
+
 import tagsCount from "../utility/tagsCount";
 import navLinksHadler from "../components/navLinksHandler";
+
+gsap.registerPlugin(Flip, ScrambleTextPlugin);
 
 fetch("/")
   .then((response) => {
