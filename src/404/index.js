@@ -33,4 +33,5 @@ fetch("/")
   })
   .finally(() => {
     Webflow.ready();
+    Webflow.require("ix2").init();
   });
