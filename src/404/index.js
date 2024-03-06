@@ -27,8 +27,10 @@ fetch("/")
     tagsCount();
     navLinksHadler();
     Webflow.destroy();
-    Webflow.ready();
   })
   .catch((error) => {
     console.error("Error fetching page:", error);
+  })
+  .finally(() => {
+    Webflow.ready();
   });
