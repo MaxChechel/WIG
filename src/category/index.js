@@ -5,7 +5,7 @@ import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
 import videojs from "video.js";
 import initVideo from "../utility/initVideo";
 
-import navLinksHadler from "../components/navLinksHandler";
+import navLinksHadler from "../utility/navLinksHandler";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 

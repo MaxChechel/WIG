@@ -6,7 +6,7 @@ import videojs from "video.js";
 import initVideo from "../utility/initVideo";
 import tagsCount from "../utility/tagsCount";
 
-import navLinksHadler from "./utility/navLinksHadler";
+import navLinksHadler from "../utility/navLinksHandler";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 
