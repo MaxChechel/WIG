@@ -4,6 +4,7 @@ import initVideo from "../utility/initVideo";
 
 import tagsCount from "../utility/tagsCount";
 import sliderCursor from "../utility/sliderCursor";
+import toPageTop from "../utility/toPageTop";
 
 document.addEventListener("DOMContentLoaded", () => {
   tagsCount();

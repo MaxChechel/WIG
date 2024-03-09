@@ -7,6 +7,7 @@ import initVideo from "../utility/initVideo";
 import tagsCount from "../utility/tagsCount";
 
 import navLinksHadler from "../utility/navLinksHandler";
+import toPageTop from "../utility/toPageTop";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 

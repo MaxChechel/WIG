@@ -6,6 +6,7 @@ import videojs from "video.js";
 import initVideo from "../utility/initVideo";
 
 import navLinksHadler from "../utility/navLinksHandler";
+import toPageTop from "../utility/toPageTop";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 
@@ -14,6 +15,7 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
+  toPageTop();
   //Video
 
   //Mutation observer for new loaded items
