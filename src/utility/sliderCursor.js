@@ -39,6 +39,7 @@ export default function sliderCursor() {
       scale: 1,
       opacity: 1,
       ease: "power4out",
+      duration: 0.4,
     });
   });
   fullSlider.addEventListener("mouseleave", function () {
@@ -46,6 +47,7 @@ export default function sliderCursor() {
       scale: 0,
       opacity: 0,
       ease: "power4out",
+      duration: 0.3,
     });
   });
 }
