@@ -3,7 +3,7 @@ import { Flip } from "gsap/all";
 import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
 
 import tagsCount from "../utility/tagsCount";
-import navLinksHadler from "../components/navLinksHandler";
+import navLinksHadler from "../utility/navLinksHandler";
 
 gsap.registerPlugin(Flip, ScrambleTextPlugin);
 
