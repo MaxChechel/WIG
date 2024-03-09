@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 export default function sliderCursor() {
   const cursor = document.querySelector(".custom-cursor");
 
