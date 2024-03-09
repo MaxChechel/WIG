@@ -42,7 +42,7 @@ export default function sliderCursor() {
   fullSlider.addEventListener("mouseleave", function () {
     gsap.to(cursor, {
       scale: 0.1,
-      opacity: 0,
+      opacity: 1,
       ease: "power4out",
     });
   });

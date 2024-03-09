@@ -7,6 +7,7 @@ import sliderCursor from "../utility/sliderCursor";
 
 document.addEventListener("DOMContentLoaded", () => {
   tagsCount();
+  toPageTop();
 
   const teamSwiper = new Swiper(".full-slider_wrap.swiper", {
     slidesPerView: "auto",

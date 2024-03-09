@@ -15,6 +15,7 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
+  toPageTop();
   tagsCount();
 
   //Mutation observer for new loaded items
