@@ -4,6 +4,7 @@ import ScrambleTextPlugin from "gsap/dist/ScrambleTextPlugin";
 
 import videojs from "video.js";
 import initVideo from "../utility/initVideo";
+import tagsCount from "../utility/tagsCount";
 
 import navLinksHadler from "../utility/navLinksHandler";
 import toPageTop from "../utility/toPageTop";
@@ -16,7 +17,7 @@ const navTagShape = document.querySelector(".navbar_tag-shape");
 let mm = gsap.matchMedia();
 document.addEventListener("DOMContentLoaded", () => {
   toPageTop();
-  //Video
+  tagsCount();
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
@@ -30,11 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Check if the added node is the type of element you want to animate
           if (node.nodeType === 1 && node.classList.contains("card_item")) {
             // ELEMENT_NODE
-            // Apply animations
-            console.log(node);
             initVideo(node);
-
-            // Initialize other functionalities as needed
           }
         });
       }

@@ -31,11 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Check if the added node is the type of element you want to animate
           if (node.nodeType === 1 && node.classList.contains("card_item")) {
             // ELEMENT_NODE
-            // Apply animations
-            console.log(node);
             initVideo(node);
-
-            // Initialize other functionalities as needed
           }
         });
       }
