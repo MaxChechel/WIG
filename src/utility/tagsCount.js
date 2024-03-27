@@ -17,7 +17,7 @@ export default function tagsCount() {
         const doc = parser.parseFromString(html, "text/html");
 
         // Example: Count elements with a specific class
-        const itemCount = doc.querySelectorAll(".card_item").length;
+        const itemCount = doc.querySelectorAll(".category-count").length;
         tagCounter.textContent = itemCount;
 
         // You can now manipulate or extract data from 'doc' as needed
