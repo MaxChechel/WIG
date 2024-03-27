@@ -18,7 +18,11 @@ export default function tagsCount() {
 
         // Example: Count elements with a specific class
         const itemCount = doc.querySelectorAll(".category-count").length;
-        tagCounter.textContent = itemCount;
+        if (itemCount === 0) {
+          tag.remove();
+        } else {
+          tagCounter.textContent = itemCount;
+        }
 
         // You can now manipulate or extract data from 'doc' as needed
       })
