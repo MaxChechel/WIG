@@ -106,8 +106,6 @@ export default function navLinksHadler() {
   function linkClickHandler(link, e) {
     const linkTextEl = link.querySelector(".navbar_link-text");
     e.preventDefault();
-    //e.stopPropagation();
-    console.log(e.target);
     navLinks.forEach((link) => {
       if (link === e.currentTarget) {
         //If menu is not opened
