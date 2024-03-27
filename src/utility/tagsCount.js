@@ -19,7 +19,7 @@ export default function tagsCount() {
         // Example: Count elements with a specific class
         const itemCount = doc.querySelectorAll(".category-count").length;
         if (itemCount === 0) {
-          tag.remove();
+          tag.closest(".navbar_tag-cms-item").remove();
         } else {
           tagCounter.textContent = itemCount;
         }
