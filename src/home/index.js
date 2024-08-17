@@ -61,38 +61,48 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       const [listInstance] = listInstances;
 
-      if (listInstance && listInstance.items) {
+      if (listInstance) {
+        // Listen for the 'renderitems' event to ensure items are fully rendered
         listInstance.on("renderitems", () => {
-          const items = listInstance.items;
+          // Select the container of the items
+          const container = listInstance.wrapper; // The container that holds the items
 
-          console.log("Current Items:", items);
+          // Get current DOM elements
+          const elements = Array.from(container.children);
 
           // Define the attribute value to find and the target index (6th position, 0-based index)
           const targetAttributeValue = "Webflow";
           const targetIndex = 5; // 6th position (0-based index)
 
-          // Find the index of the item with the specific attribute
-          const itemIndex = items.findIndex(
-            (item) =>
-              item.element.getAttribute("data-sponsor") === targetAttributeValue
+          // Find the item with the specific attribute
+          const itemToMove = elements.find(
+            (element) =>
+              element.getAttribute("data-sponsor") === targetAttributeValue
           );
 
-          if (itemIndex !== -1) {
+          if (itemToMove) {
             // Remove the item from its current position
-            const [itemToMove] = items.splice(itemIndex, 1);
+            container.removeChild(itemToMove);
 
-            // Check if the target index is within bounds
-            if (targetIndex <= items.length) {
-              items.splice(targetIndex, 0, itemToMove);
+            // Find the 5th item (6th position, 0-based index)
+            const fifthItem = elements[targetIndex];
+
+            if (fifthItem) {
+              // Move the item to the position after the 5th item
+              container.insertBefore(itemToMove, fifthItem.nextSibling);
             } else {
-              items.push(itemToMove); // If targetIndex is out of bounds, append to the end
+              // If there are fewer than 6 items, append it to the end
+              container.appendChild(itemToMove);
             }
+
+            // Ensure the CMS list is updated to reflect changes
+            listInstance.renderItems(); // Trigger the re-render
           } else {
             console.warn("Item with the specified attribute not found.");
           }
         });
       } else {
-        console.warn("No items available in the list.");
+        console.warn("No list instance available.");
       }
     },
   ]);
