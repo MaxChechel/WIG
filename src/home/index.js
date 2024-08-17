@@ -62,43 +62,54 @@ document.addEventListener("DOMContentLoaded", () => {
       const [listInstance] = listInstances;
 
       if (listInstance) {
-        // Listen for the 'renderitems' event to ensure items are fully rendered
+        // Flag to ensure renderItems is called only once
+        let hasRendered = false;
+
         listInstance.on("renderitems", () => {
-          // Select the container of the items
+          if (hasRendered) return; // Prevent multiple triggers
+
+          // Ensure that DOM manipulation is done after items are fully rendered
           const container = listInstance.wrapper; // The container that holds the items
 
-          // Get current DOM elements
-          const elements = Array.from(container.children);
+          if (container) {
+            // Get current DOM elements
+            const elements = Array.from(container.children);
 
-          // Define the attribute value to find and the target index (6th position, 0-based index)
-          const targetAttributeValue = "Webflow";
-          const targetIndex = 5; // 6th position (0-based index)
+            // Define the attribute value to find and the target index (6th position, 0-based index)
+            const targetAttributeValue = "Webflow";
+            const targetIndex = 5; // 6th position (0-based index)
 
-          // Find the item with the specific attribute
-          const itemToMove = elements.find(
-            (element) =>
-              element.getAttribute("data-sponsor") === targetAttributeValue
-          );
+            // Find the item with the specific attribute
+            const itemToMove = elements.find(
+              (element) =>
+                element.getAttribute("data-sponsor") === targetAttributeValue
+            );
 
-          if (itemToMove) {
-            // Remove the item from its current position
-            container.removeChild(itemToMove);
+            if (itemToMove) {
+              // Remove the item from its current position
+              container.removeChild(itemToMove);
 
-            // Find the 5th item (6th position, 0-based index)
-            const fifthItem = elements[targetIndex];
+              // Find the 5th item (6th position, 0-based index)
+              const fifthItem = elements[targetIndex];
 
-            if (fifthItem) {
-              // Move the item to the position after the 5th item
-              container.insertBefore(itemToMove, fifthItem.nextSibling);
+              if (fifthItem) {
+                // Move the item to the position after the 5th item
+                container.insertBefore(itemToMove, fifthItem.nextSibling);
+              } else {
+                // If there are fewer than 6 items, append it to the end
+                container.appendChild(itemToMove);
+              }
+
+              // Call renderItems to update the CMS list
+              listInstance.renderItems();
+
+              // Set the flag to true to prevent further re-renders
+              hasRendered = true;
             } else {
-              // If there are fewer than 6 items, append it to the end
-              container.appendChild(itemToMove);
+              console.warn("Item with the specified attribute not found.");
             }
-
-            // Ensure the CMS list is updated to reflect changes
-            listInstance.renderItems(); // Trigger the re-render
           } else {
-            console.warn("Item with the specified attribute not found.");
+            console.warn("Container element not found.");
           }
         });
       } else {
