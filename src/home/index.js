@@ -83,12 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Check if the target index is within bounds
             if (targetIndex <= items.length) {
-              items.splice(targetIndex, 0, itemToMove); // Insert at the target position
+              items.splice(targetIndex, 0, itemToMove);
             } else {
               items.push(itemToMove); // If targetIndex is out of bounds, append to the end
             }
 
-            console.log("Reordered Items:", items);
+            listInstance.renderItems();
           } else {
             console.warn("Item with the specified attribute not found.");
           }
