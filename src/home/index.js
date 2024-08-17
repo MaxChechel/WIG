@@ -42,11 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fsAttributes.push([
     "cmsload",
     (listInstances) => {
-      console.log("cmsload Successfully loaded!");
-      console.log(listInstances);
       observer.observe(cardsList, {
         childList: true,
         subtree: true,
+      });
+      const [listInstance] = listInstances;
+
+      listInstance.on("renderitems", (renderedItems) => {
+        console.log(renderedItems);
       });
     },
   ]);
