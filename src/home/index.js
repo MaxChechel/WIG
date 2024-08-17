@@ -56,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fsAttributes.push([
     "cmsload",
     (listInstances) => {
+      observer.observe(cardsList, {
+        childList: true,
+        subtree: true,
+      });
       const [listInstance] = listInstances;
 
       // Listen for the 'renderitems' event to ensure items are fully rendered
@@ -76,13 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
             element.getAttribute("data-sponsor") === targetAttributeValue
         );
 
-        // Find the 5th item (6th position, 0-based index)
-        const fifthItem = elements[targetIndex];
+        // Ensure the item to move and the target index exist
+        if (itemToMove && elements[targetIndex]) {
+          // Find the 5th item (6th position, 0-based index)
+          const fifthItem = elements[targetIndex];
 
-        // Move the item to the position after the 5th item
-        container.insertBefore(itemToMove, fifthItem.nextSibling);
+          // Move the item to the position after the 5th item
+          container.insertBefore(itemToMove, fifthItem);
 
-        !hasRendered ? listInstance.renderItems() : (hasRendered = true);
+          // Re-render items if not already rendered
+          if (!hasRendered) {
+            listInstance.renderItems();
+            hasRendered = true;
+          }
+        }
       });
     },
   ]);
