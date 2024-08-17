@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Mutation observer for new loaded items
   const cardsList = document.querySelector(".cards_list");
-  const cardItems = document.querySelectorAll(".card_item");
+  const cardItems = document.querySelectorAll(".card_item:not(.is-sponsor)");
   cardItems.forEach((item) => initVideo(item));
 
   const observer = new MutationObserver((mutationsList, observer) => {
