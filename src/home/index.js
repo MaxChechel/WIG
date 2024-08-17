@@ -32,16 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (node.nodeType === 1 && node.classList.contains("card_item")) {
             // ELEMENT_NODE
             initVideo(node);
-
-            //Insert sponsor card
-            const cardToCut = document.querySelector(
-              ".sponsor-cards-wrap .card_item.is-sponsor"
-            );
-            const destinationParent = document.querySelector(".cards_list");
-            destinationParent.insertBefore(
-              cardToCut,
-              destinationParent.children[4].nextSibling
-            );
           }
         });
       }
