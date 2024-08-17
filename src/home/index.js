@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       const [listInstance] = listInstances;
 
-      console.log(listInstances.items);
+      console.log(listInstance);
     },
   ]);
 
