@@ -87,8 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               items.push(itemToMove); // If targetIndex is out of bounds, append to the end
             }
-
-            listInstance.renderItems();
           } else {
             console.warn("Item with the specified attribute not found.");
           }
