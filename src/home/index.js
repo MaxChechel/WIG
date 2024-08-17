@@ -51,70 +51,47 @@ document.addEventListener("DOMContentLoaded", () => {
   //     console.log(listInstance.items);
   //   },
   // ]);
+  let hasRendered = false;
   window.fsAttributes = window.fsAttributes || [];
   window.fsAttributes.push([
     "cmsload",
     (listInstances) => {
-      observer.observe(cardsList, {
-        childList: true,
-        subtree: true,
-      });
       const [listInstance] = listInstances;
 
-      if (listInstance) {
-        // Flag to ensure renderItems is called only once
-        let hasRendered = false;
+      // Listen for the 'renderitems' event to ensure items are fully rendered
+      listInstance.on("renderitems", () => {
+        // Select the container of the items
+        const container = listInstance.wrapper; // The container that holds the items
 
-        listInstance.on("renderitems", () => {
-          if (hasRendered) return; // Prevent multiple triggers
+        // Get current DOM elements
+        const elements = Array.from(container.children);
 
-          // Ensure that DOM manipulation is done after items are fully rendered
-          const container = listInstance.wrapper; // The container that holds the items
+        // Define the attribute value to find and the target index (6th position, 0-based index)
+        const targetAttributeValue = "Webflow";
+        const targetIndex = 5; // 6th position (0-based index)
 
-          if (container) {
-            // Get current DOM elements
-            const elements = Array.from(container.children);
+        // Find the item with the specific attribute
+        const itemToMove = elements.find(
+          (element) =>
+            element.getAttribute("data-sponsor") === targetAttributeValue
+        );
 
-            // Define the attribute value to find and the target index (6th position, 0-based index)
-            const targetAttributeValue = "Webflow";
-            const targetIndex = 5; // 6th position (0-based index)
+        // Remove the item from its current position
+        container.removeChild(itemToMove);
 
-            // Find the item with the specific attribute
-            const itemToMove = elements.find(
-              (element) =>
-                element.getAttribute("data-sponsor") === targetAttributeValue
-            );
+        // Find the 5th item (6th position, 0-based index)
+        const fifthItem = elements[targetIndex];
 
-            if (itemToMove) {
-              // Remove the item from its current position
-              container.removeChild(itemToMove);
+        if (fifthItem) {
+          // Move the item to the position after the 5th item
+          container.insertBefore(itemToMove, fifthItem.nextSibling);
+        } else {
+          // If there are fewer than 6 items, append it to the end
+          container.appendChild(itemToMove);
+        }
 
-              // Find the 5th item (6th position, 0-based index)
-              const fifthItem = elements[targetIndex];
-
-              if (fifthItem) {
-                // Move the item to the position after the 5th item
-                container.insertBefore(itemToMove, fifthItem.nextSibling);
-              } else {
-                // If there are fewer than 6 items, append it to the end
-                container.appendChild(itemToMove);
-              }
-
-              // Call renderItems to update the CMS list
-              listInstance.renderItems();
-
-              // Set the flag to true to prevent further re-renders
-              hasRendered = true;
-            } else {
-              console.warn("Item with the specified attribute not found.");
-            }
-          } else {
-            console.warn("Container element not found.");
-          }
-        });
-      } else {
-        console.warn("No list instance available.");
-      }
+        hasRendered ? listInstance.renderItems() : (hasRendered = true);
+      });
     },
   ]);
 
