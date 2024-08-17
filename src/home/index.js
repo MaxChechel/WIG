@@ -38,20 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // window.fsAttributes = window.fsAttributes || [];
-  // window.fsAttributes.push([
-  //   "cmsload",
-  //   (listInstances) => {
-  //     observer.observe(cardsList, {
-  //       childList: true,
-  //       subtree: true,
-  //     });
-  //     const [listInstance] = listInstances;
-
-  //     console.log(listInstance.items);
-  //   },
-  // ]);
-  let hasRendered = false;
   window.fsAttributes = window.fsAttributes || [];
   window.fsAttributes.push([
     "cmsload",
@@ -61,40 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         subtree: true,
       });
       const [listInstance] = listInstances;
-
-      // Listen for the 'renderitems' event to ensure items are fully rendered
-      listInstance.on("renderitems", () => {
-        // Select the container of the items
-        const container = listInstance.wrapper; // The container that holds the items
-
-        // Get current DOM elements
-        const elements = Array.from(container.children);
-
-        // Define the attribute value to find and the target index (6th position, 0-based index)
-        const targetAttributeValue = "Webflow";
-        const targetIndex = 5; // 6th position (0-based index)
-
-        // Find the item with the specific attribute
-        const itemToMove = elements.find(
-          (element) =>
-            element.getAttribute("data-sponsor") === targetAttributeValue
-        );
-
-        // Ensure the item to move and the target index exist
-        if (itemToMove && elements[targetIndex]) {
-          // Find the 5th item (6th position, 0-based index)
-          const fifthItem = elements[targetIndex];
-
-          // Move the item to the position after the 5th item
-          container.insertBefore(itemToMove, fifthItem);
-
-          // Re-render items if not already rendered
-          if (!hasRendered) {
-            listInstance.renderItems();
-            hasRendered = true;
-          }
-        }
-      });
     },
   ]);
 
