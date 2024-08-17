@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Move the item to the position after the 5th item
         container.insertBefore(itemToMove, fifthItem.nextSibling);
 
-        hasRendered ? listInstance.renderItems() : (hasRendered = true);
+        !hasRendered ? listInstance.renderItems() : (hasRendered = true);
       });
     },
   ]);
