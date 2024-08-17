@@ -76,19 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
             element.getAttribute("data-sponsor") === targetAttributeValue
         );
 
-        // Remove the item from its current position
-        container.removeChild(itemToMove);
-
         // Find the 5th item (6th position, 0-based index)
         const fifthItem = elements[targetIndex];
 
-        if (fifthItem) {
-          // Move the item to the position after the 5th item
-          container.insertBefore(itemToMove, fifthItem.nextSibling);
-        } else {
-          // If there are fewer than 6 items, append it to the end
-          container.appendChild(itemToMove);
-        }
+        // Move the item to the position after the 5th item
+        container.insertBefore(itemToMove, fifthItem.nextSibling);
 
         hasRendered ? listInstance.renderItems() : (hasRendered = true);
       });
