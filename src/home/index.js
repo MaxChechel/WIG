@@ -62,35 +62,37 @@ document.addEventListener("DOMContentLoaded", () => {
       const [listInstance] = listInstances;
 
       if (listInstance && listInstance.items) {
-        const items = listInstance.items;
+        listInstance.on("renderitems", () => {
+          const items = listInstance.items;
 
-        console.log("Current Items:", items);
+          console.log("Current Items:", items);
 
-        // Define the attribute value to find and the target index (6th position, 0-based index)
-        const targetAttributeValue = "Webflow";
-        const targetIndex = 5; // 6th position (0-based index)
+          // Define the attribute value to find and the target index (6th position, 0-based index)
+          const targetAttributeValue = "Webflow";
+          const targetIndex = 5; // 6th position (0-based index)
 
-        // Find the index of the item with the specific attribute
-        const itemIndex = items.findIndex(
-          (item) =>
-            item.element.getAttribute("data-sponsor") === targetAttributeValue
-        );
+          // Find the index of the item with the specific attribute
+          const itemIndex = items.findIndex(
+            (item) =>
+              item.element.getAttribute("data-sponsor") === targetAttributeValue
+          );
 
-        if (itemIndex !== -1) {
-          // Remove the item from its current position
-          const [itemToMove] = items.splice(itemIndex, 1);
+          if (itemIndex !== -1) {
+            // Remove the item from its current position
+            const [itemToMove] = items.splice(itemIndex, 1);
 
-          // Check if the target index is within bounds
-          if (targetIndex <= items.length) {
-            items.splice(targetIndex, 0, itemToMove); // Insert at the target position
+            // Check if the target index is within bounds
+            if (targetIndex <= items.length) {
+              items.splice(targetIndex, 0, itemToMove); // Insert at the target position
+            } else {
+              items.push(itemToMove); // If targetIndex is out of bounds, append to the end
+            }
+
+            console.log("Reordered Items:", items);
           } else {
-            items.push(itemToMove); // If targetIndex is out of bounds, append to the end
+            console.warn("Item with the specified attribute not found.");
           }
-
-          console.log("Reordered Items:", items);
-        } else {
-          console.warn("Item with the specified attribute not found.");
-        }
+        });
       } else {
         console.warn("No items available in the list.");
       }
